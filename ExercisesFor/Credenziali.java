@@ -108,16 +108,19 @@ public class Credenziali {
 
                     break;
                 case 4:
+                    // l'utente ha scelto di uscire dal menu modifiche
                     System.out.println("Hai scelto di uscire");
                     exit = true;
 
                     break;
 
                 default:
+                    System.out.println("Non hai selezionato una opzione valida");
                     break;
             }
 
-            System.out.println("I tuoi dati in questo momento\nNome: "+nome+"\nPassword: "+password+"\neta: "+eta);
+            System.out.println(
+                    "I tuoi dati in questo momento\nNome: " + nome + "\nPassword: " + password + "\neta: " + eta);
 
         } while (!exit);
 
