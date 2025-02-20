@@ -28,6 +28,9 @@ public class UntilNegative {
             }
             
         }
+        
+        // chiusura scanner
+        myIntScanner.close();
 
     }
 }
