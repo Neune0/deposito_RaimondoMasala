@@ -1,6 +1,7 @@
 /* esercizio 1 su funzioni, gestione spedizioni penne */
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class PrimoEsercizioFunzioni {
@@ -85,5 +86,24 @@ public class PrimoEsercizioFunzioni {
                 i++;
             }
         }
+    }
+
+    // genera una spedizione random
+    public static ArrayList<Integer> generaSpedizione(){
+        Random generatoreInteri = new Random();
+        ArrayList<Integer> spedizione = new ArrayList<>();
+
+        for(int i=0;i<4;i++){
+            spedizione.add(generatoreInteri.nextInt(100));
+        }
+        return spedizione;
+
+    }
+
+    public static ArrayList<ArrayList<Integer>> generaSpedizioni(){
+        ArrayList<ArrayList<Integer>> spedizioni = new ArrayList<>();
+        Random generatoreInteri = new Random();
+        int numeroDiSpedizioni = generatoreInteri.nextInt(10)+1;
+        return spedizioni;
     }
 }
