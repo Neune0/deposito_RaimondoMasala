@@ -97,13 +97,15 @@ public class PrimoEsercizioFunzioni {
             spedizione.add(generatoreInteri.nextInt(100));
         }
         return spedizione;
-
     }
 
     public static ArrayList<ArrayList<Integer>> generaSpedizioni(){
         ArrayList<ArrayList<Integer>> spedizioni = new ArrayList<>();
         Random generatoreInteri = new Random();
         int numeroDiSpedizioni = generatoreInteri.nextInt(10)+1;
+        for(int i=0;i<numeroDiSpedizioni;i++){
+            spedizioni.add(generaSpedizione());
+        }
         return spedizioni;
     }
 }
