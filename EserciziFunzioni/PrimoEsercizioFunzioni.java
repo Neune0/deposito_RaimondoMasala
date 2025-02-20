@@ -6,8 +6,10 @@ import java.util.Scanner;
 
 public class PrimoEsercizioFunzioni {
     public static void main(String[] args) {
-        ArrayList<ArrayList<Integer>> spedizioni = new ArrayList<>();
-        ArrayList<Integer> quantitaColori = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> spedizioni = generaSpedizioni();
+
+        menu(spedizioni);
+        
 
     }
 
@@ -37,7 +39,7 @@ public class PrimoEsercizioFunzioni {
         for (ArrayList<Integer> spedizione : spedizioni) {
             System.out.println("spedizione " + i + ": " + spedizione.get(0) + " rosse " + spedizione.get(1) + " blu "
                     + spedizione.get(2) + " verdi " + spedizione.get(3) + " verdi");
-                    i++;
+            i++;
         }
     }
 
@@ -80,32 +82,119 @@ public class PrimoEsercizioFunzioni {
         for (ArrayList<Integer> spedizione : spedizioni) {
             if (spedizione.get(index) > 0) {
                 // print della spedizione
-                System.out.println("spedizione " + i + ": " + spedizione.get(0) + " rosse " + spedizione.get(1) + " blu "
-                    + spedizione.get(2) + " verdi " + spedizione.get(3) + " verdi");
-                
+                System.out
+                        .println("spedizione " + i + ": " + spedizione.get(0) + " rosse " + spedizione.get(1) + " blu "
+                                + spedizione.get(2) + " verdi " + spedizione.get(3) + " verdi");
+
                 i++;
             }
         }
     }
 
     // genera una spedizione random
-    public static ArrayList<Integer> generaSpedizione(){
+    public static ArrayList<Integer> generaSpedizione() {
         Random generatoreInteri = new Random();
         ArrayList<Integer> spedizione = new ArrayList<>();
 
-        for(int i=0;i<4;i++){
+        for (int i = 0; i < 4; i++) {
             spedizione.add(generatoreInteri.nextInt(100));
         }
         return spedizione;
     }
 
-    public static ArrayList<ArrayList<Integer>> generaSpedizioni(){
+    public static ArrayList<ArrayList<Integer>> generaSpedizioni() {
         ArrayList<ArrayList<Integer>> spedizioni = new ArrayList<>();
         Random generatoreInteri = new Random();
-        int numeroDiSpedizioni = generatoreInteri.nextInt(10)+1;
-        for(int i=0;i<numeroDiSpedizioni;i++){
+        int numeroDiSpedizioni = generatoreInteri.nextInt(10) + 1;
+        for (int i = 0; i < numeroDiSpedizioni; i++) {
             spedizioni.add(generaSpedizione());
         }
         return spedizioni;
+    }
+
+    public static void menu(ArrayList<ArrayList<Integer>> spedizioni) {
+        Scanner myIntScanner = new Scanner(System.in);
+        int sceltaUtente = 0;
+        do {
+            System.out.println("-------- MENU ---------------");
+            System.out.println("premi 0 per aggiunge una spedizione");
+            System.out.println("premi 1 per visualizzare le spedizioni");
+            System.out.println("premi 2 per sapere il totale delle penne per colore");
+            System.out.println("premi 3 per effetuare una ricerca per colore");
+            System.out.println("premi 4 per uscire");
+
+            switch (sceltaUtente) {
+                case 0: // aggiungere una spedizione
+                    spedizioni.add(addLotto());
+
+                    break;
+                case 1:
+                    printSpedizioni(spedizioni);
+
+                    break;
+                case 2:
+                    printTotPerColore(spedizioni);
+
+                    break;
+                case 3:
+                    // menu ricerca per colore
+                    menuColore(spedizioni);
+                    break;
+                case 4:
+                    System.out.println("hai scelto di uscire");
+
+                    break;
+
+                default:
+                    System.out.println("opzione non valida");
+                    break;
+            }
+
+        } while (sceltaUtente != 4);
+        myIntScanner.close();
+
+    }
+
+    public static void menuColore(ArrayList<ArrayList<Integer>> spedizioni) {
+        Scanner myIntScanner = new Scanner(System.in);
+        int sceltaUtente = 0;
+        do {
+            System.out.println("-------- MENU ---------------");
+            System.out.println("premi 0 per rosso");
+            System.out.println("premi 1 per blu");
+            System.out.println("premi 2 per verde");
+            System.out.println("premi 3 per nero");
+            System.out.println("premi 4 per uscire");
+
+            switch (sceltaUtente) {
+                case 0:
+                    ricercaPerColore("rosse", spedizioni);
+
+                    break;
+                case 1:
+                    ricercaPerColore("blu", spedizioni);
+
+                    break;
+                case 2:
+                    ricercaPerColore("verdi", spedizioni);
+
+                    break;
+                case 3:
+                    ricercaPerColore("nere", spedizioni);
+
+                    break;
+                case 4:
+
+                    break;
+
+                default:
+                    System.out.println("opzione non valida");
+                    break;
+            }
+
+        } while (sceltaUtente != 4);
+
+        myIntScanner.close();
+
     }
 }
