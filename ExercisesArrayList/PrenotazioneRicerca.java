@@ -23,7 +23,7 @@ public class PrenotazioneRicerca {
         String nomeTarget = ""; // per ricerca per nome
 
         // righe e colonne massime per la prenotazione
-        int minRiga = 0, maxRiga = 2;
+        int minRiga = 0, maxRiga = 3;
         int minCol = 0, maxCol = 8;
 
         // il totale dei posti
