@@ -11,7 +11,6 @@ public class PrenotazioneRicerca {
         ArrayList<Integer> righe = new ArrayList<>();
         ArrayList<Integer> colonne = new ArrayList<>();
         ArrayList<String> nomi = new ArrayList<>();
-        boolean exit = false;
 
         int row = 0;
         int col = 0;
@@ -238,5 +237,8 @@ public class PrenotazioneRicerca {
 
         } while (sceltaMenuUtente != 7);
 
+        // chiusura scanner
+        myStringScanner.close();
+        myIntScanner.close();
     }
 }
