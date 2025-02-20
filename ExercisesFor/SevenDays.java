@@ -4,7 +4,7 @@ public class SevenDays {
     public static void main(String[] args) {
         // array che conterra' i giorni scelti dall'utente
         int[] days = { 0, 0, 0, 0, 0, 0, 0 };
-        // creazione oggetto Scanner
+        // creazione oggetto scanner
         Scanner myIntScanner = new Scanner(System.in);
 
         // prompt utente iniziale
@@ -42,42 +42,42 @@ public class SevenDays {
                     break;
 
                 default:
-                System.out.println("error");
+                    System.out.println("error");
                     break;
             }
         }
 
-            // stampo i giorni selezionati dall'utente
-            System.out.println("Hai selezionato i sequenti giorni: ");
-            for (int day : days) {
-                switch (day) {
-                    case 0:
-                        System.out.println("Lunedi");
-                        break;
-                    case 1:
-                        System.out.println("Martedi");
-                        break;
-                    case 2:
-                        System.out.println("Mercoledi");
-                        break;
-                    case 3:
-                        System.out.println("Giovedi");
-                        break;
-                    case 4:
-                        System.out.println("Venerdi");
-                        break;
-                    case 5:
-                        System.out.println("Sabato");
-                        break;
-                    case 6:
-                        System.out.println("Domenica");
-                        break;
+        // stampo i giorni selezionati dall'utente
+        System.out.println("Hai selezionato i sequenti giorni: ");
+        for (int day : days) {
+            switch (day) {
+                case 0:
+                    System.out.println("Lunedi");
+                    break;
+                case 1:
+                    System.out.println("Martedi");
+                    break;
+                case 2:
+                    System.out.println("Mercoledi");
+                    break;
+                case 3:
+                    System.out.println("Giovedi");
+                    break;
+                case 4:
+                    System.out.println("Venerdi");
+                    break;
+                case 5:
+                    System.out.println("Sabato");
+                    break;
+                case 6:
+                    System.out.println("Domenica");
+                    break;
 
-                    default:
+                default:
                     System.out.println("error");
-                        break;
-                }
+                    break;
             }
+        }
 
         // chiusura oggetto scanner
         myIntScanner.close();
