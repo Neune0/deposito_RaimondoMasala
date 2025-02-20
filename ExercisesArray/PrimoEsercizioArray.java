@@ -11,13 +11,18 @@ public class PrimoEsercizioArray {
         // creazione scanner
         Scanner myIntScanner= new Scanner(System.in);
 
-        // finche tutto l'array non è pieno di numeri superiori a 100
-        while(numeri[0]<=100 && numeri[1]<=100 && numeri[2]<=100){
+        int contatore=0;
+
+        // finche l'utente non riempie l'array con numeri superiori a 100
+        while(contatore<3){
             
             // faccio riempire l'array all'utente
             for(int i=0;i<numeri.length;i++){
                 System.out.println("Inserisci un numero superiore a 100: ");
                 numeri[i] = myIntScanner.nextInt();
+                if(numeri[i]>=100){
+                    contatore++;
+                }
             }
 
             // stampa dell' array riempito dall'utente
@@ -27,8 +32,9 @@ public class PrimoEsercizioArray {
             }
 
             // se l'utente non ha riempito correttamente lo faccio notare
-            if(numeri[0]<=100 && numeri[1]<=100 && numeri[2]<=100){
+            if(contatore<3){
                 System.out.println("Tutti i numeri devono essere superiori a 100, riprova");
+                contatore=0;
             }
             
         }
