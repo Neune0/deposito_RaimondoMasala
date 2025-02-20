@@ -6,13 +6,15 @@ import java.util.Scanner;
 
 public class PrimoEsercizioFunzioni {
     public static void main(String[] args) {
+        // la struttura dati che contiene le spedizioni inizializzata randomica
         ArrayList<ArrayList<Integer>> spedizioni = generaSpedizioni();
 
+        // il menu del gestionale
         menu(spedizioni);
-        
-
+        return;
     }
 
+    // per aggiungere un lotto da prompt
     public static ArrayList<Integer> addLotto() {
         ArrayList<Integer> quantitaColori = new ArrayList<>();
         Scanner myIntScanner = new Scanner(System.in);
@@ -34,6 +36,7 @@ public class PrimoEsercizioFunzioni {
 
     }
 
+    // stampa tutte le spedizioni
     public static void printSpedizioni(ArrayList<ArrayList<Integer>> spedizioni) {
         int i = 0;
         for (ArrayList<Integer> spedizione : spedizioni) {
@@ -43,6 +46,7 @@ public class PrimoEsercizioFunzioni {
         }
     }
 
+    // stampa la quantita totale per ogni tipo di penna(colore)
     public static void printTotPerColore(ArrayList<ArrayList<Integer>> spedizioni) {
         int rosse = 0, blu = 0, verdi = 0, nere = 0;
         for (ArrayList<Integer> spedizione : spedizioni) {
@@ -58,6 +62,7 @@ public class PrimoEsercizioFunzioni {
         System.out.println("nere totali: " + rosse);
     }
 
+    // fa una ricerca e stampa tutte le spedizioni che contengono almeno una penna del colore selezionato
     public static void ricercaPerColore(String colore, ArrayList<ArrayList<Integer>> spedizioni) {
         int index = 0;
         switch (colore) {
@@ -102,6 +107,7 @@ public class PrimoEsercizioFunzioni {
         return spedizione;
     }
 
+    // genera da 0 a 10 spedizioni randomicamente
     public static ArrayList<ArrayList<Integer>> generaSpedizioni() {
         ArrayList<ArrayList<Integer>> spedizioni = new ArrayList<>();
         Random generatoreInteri = new Random();
@@ -112,6 +118,7 @@ public class PrimoEsercizioFunzioni {
         return spedizioni;
     }
 
+    // il menu principale del gestionale
     public static void menu(ArrayList<ArrayList<Integer>> spedizioni) {
         Scanner myIntScanner = new Scanner(System.in);
         int sceltaUtente = 0;
@@ -155,6 +162,7 @@ public class PrimoEsercizioFunzioni {
 
     }
 
+    // il menu per la ricerca tramite colore
     public static void menuColore(ArrayList<ArrayList<Integer>> spedizioni) {
         Scanner myIntScanner = new Scanner(System.in);
         int sceltaUtente = 0;
