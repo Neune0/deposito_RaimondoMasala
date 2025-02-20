@@ -26,5 +26,8 @@ public class EsempioArrayList {
 
         ArrayList<String> secondoArrayList = new ArrayList<>(Arrays.asList(arrayStringhe));
 
+        // from arraylist to array
+        secondoArrayList.toArray(arrayStringhe);
+
     }
 }
