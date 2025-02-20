@@ -16,5 +16,8 @@ public class TabellinaWhile {
             System.out.println("| "+numeroScelto+" x "+iterator+" : "+iterator*numeroScelto);
             iterator++;
         }
+
+        // chiusura scanner
+        myScanner.close();
     }
 }
