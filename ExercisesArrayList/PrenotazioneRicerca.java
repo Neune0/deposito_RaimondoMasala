@@ -6,12 +6,16 @@ import java.util.Scanner;
 
 public class PrenotazioneRicerca {
     public static void main(String[] args) {
+        // scanner per lettura input utente
         Scanner myStringScanner = new Scanner(System.in);
         Scanner myIntScanner = new Scanner(System.in);
+
+        // per dati relativi a file, colonne e nomi degli utenti che hanno prenotato
         ArrayList<Integer> righe = new ArrayList<>();
         ArrayList<Integer> colonne = new ArrayList<>();
         ArrayList<String> nomi = new ArrayList<>();
 
+        // per input utente in prenotazione posto
         int row = 0;
         int col = 0;
         String name = "";
@@ -58,24 +62,28 @@ public class PrenotazioneRicerca {
                         do {
                             System.out.println("Inserisci il tuo nome: ");
                             name = myStringScanner.nextLine();
+                            // controllo nome valido
                             if (name.length() <= 0) {
                                 System.out.println("nome inserito non valido, riprova");
                             } else {
                                 nomi.add(name);
                             }
+                            // finche non inserisce un nome valido
                         } while (name.length() <= 0);
 
                         // assegnazione posto
                         do {
-                            // riga
+                            // riga / fila
                             do {
                                 System.out.println("Inserisci la riga del posto da prenotare min 0 max 8: ");
                                 row = myIntScanner.nextInt();
+                                // controllo che la fila selezionata sia valida
                                 if (row < minRiga || row > maxRiga) {
                                     System.out.println("riga inserita non valida min 0 max 8, riprova");
                                 } else {
-                                    // non posso ancora inserire poiche non so se il posto sara occupato
+                                    // non posso ancora inserire poiche non so se il posto è occupato
                                 }
+                                // finche non inserisce una fila valida
                             } while (row < minRiga || row > maxRiga);
 
                             // colonna
