@@ -49,10 +49,13 @@ public class PrenotazioneRicerca {
             System.out.println(" 5 per effettuare una ricerca per colonna");
             System.out.println(" 6 per stampare il report");
             System.out.println(" 7 per uscire");
+
+            // read della scelta utente
             sceltaMenuUtente = myIntScanner.nextInt();
 
+            // switch sulla scelta dell'utente
             switch (sceltaMenuUtente) {
-                case 0:
+                case 0: // per prenotare un posto
                     if (nomi.size() < postiTotali) {
 
                         // aggiungere una prenotazione
@@ -122,7 +125,7 @@ public class PrenotazioneRicerca {
                     }
 
                     break;
-                case 1:
+                case 1: // per visualizzare la lista dei posti liberi
                     System.out.println("Hai scelto di visualizzare la lista dei posti liberi");
                     // visualizzare tutti i posti non prenotati
                     // srotolo numero file e numero colonne
@@ -150,7 +153,7 @@ public class PrenotazioneRicerca {
                     }
 
                     break;
-                case 2:
+                case 2: // per visualizzare la lista dei posti prenotati
                     // visualizzare tutti i posti prenotati
                     System.out.println("Hai scelto di visualizzare la lista dei posti prenotati: ");
                     for (int i = 0; i < nomi.size(); i++) {
@@ -160,7 +163,7 @@ public class PrenotazioneRicerca {
                     }
 
                     break;
-                case 3:
+                case 3: // ricerca per nome
                     // cercare prenotazioni per nome
                     nomeTarget = "";
                     do {
@@ -182,7 +185,7 @@ public class PrenotazioneRicerca {
                     }
 
                     break;
-                case 4:
+                case 4: // ricerca per fila
                     // cercare prenotazioni per fila
 
                     filaTarget = 0; // reset della fila target
@@ -204,7 +207,7 @@ public class PrenotazioneRicerca {
                         }
                     }
                     break;
-                case 5:
+                case 5: // ricerca per colonna
                     // cercare prenotazioni per colonna
                     colonnaTarget = 0; // reset della colonna target
                     do {
@@ -228,22 +231,21 @@ public class PrenotazioneRicerca {
                     }
 
                     break;
-                case 6:
+                case 6: // visualizza report
                     // report
                     // stampare posti totali/posti occupati
                     System.out.println("I posti occupati sono: " + nomi.size());
                     System.out.println("I posti liberi sono: " + (postiTotali - nomi.size()));
                     break;
-                case 7:
+                case 7: // uscita
                     // uscita
                     System.out.println("Hai scelto di uscire.");
                     break;
-                default:
+                default: // scelta menu non valida
                     System.out.println("opzione menu non valida, riprova");
                     break;
             }
-
-        } while (sceltaMenuUtente != 7);
+        } while (sceltaMenuUtente != 7); // finche non sceglie di uscire
 
         // chiusura scanner
         myStringScanner.close();
