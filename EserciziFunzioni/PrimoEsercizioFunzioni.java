@@ -57,9 +57,9 @@ public class PrimoEsercizioFunzioni {
         }
 
         System.out.println("rosse totali: " + rosse);
-        System.out.println("blu totali: " + rosse);
-        System.out.println("verdi totali: " + rosse);
-        System.out.println("nere totali: " + rosse);
+        System.out.println("blu totali: " + blu);
+        System.out.println("verdi totali: " + verdi);
+        System.out.println("nere totali: " + nere);
     }
 
     // fa una ricerca e stampa tutte le spedizioni che contengono almeno una penna del colore selezionato
