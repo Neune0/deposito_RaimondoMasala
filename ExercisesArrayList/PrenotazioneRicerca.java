@@ -21,6 +21,7 @@ public class PrenotazioneRicerca {
         String name = "";
 
         int sceltaMenuUtente = 0; // per scelta menu
+        
         int colonnaTarget = 0; // per ricerca tramite colonna
         int filaTarget = 0; // per ricerca tramite fila
         String nomeTarget = ""; // per ricerca per nome
@@ -56,6 +57,8 @@ public class PrenotazioneRicerca {
             // switch sulla scelta dell'utente
             switch (sceltaMenuUtente) {
                 case 0: // per prenotare un posto
+
+                    // controllo che ci siano effettivamente posti disponibili
                     if (nomi.size() < postiTotali) {
 
                         // aggiungere una prenotazione
