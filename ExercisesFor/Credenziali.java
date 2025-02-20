@@ -124,5 +124,9 @@ public class Credenziali {
 
         } while (!exit);
 
+        // chiusura degli scanner
+        myIntScanner.close();
+        myStringScanner.close();
+
     }
 }
