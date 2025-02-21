@@ -99,7 +99,7 @@ public class GestionaleVille {
         // per ogni villa stampo tutti i suoi "attributi"
         for (ArrayList<Object> villa : ville) {
             System.out.println(
-                    "Nome villa: " + villa.get(0) + " num stanze: " + villa.get(1) + " piscina: " + villa.get(2));
+                    "Nome villa: " + (String) villa.get(0) + " num stanze: " + (Integer) villa.get(1) + " piscina: " + (Integer) villa.get(2));
         }
     }
 
@@ -120,9 +120,9 @@ public class GestionaleVille {
 
         // per ogni villa se il nome corrisponde stampo tutti gli "attributi" della villa
         for (ArrayList<Object> villa : ville) {
-            if (villa.get(0).equals(nomeVilla)) {
+            if (((String)(villa.get(0))).equals(nomeVilla)) {
                 System.out.println(
-                        "Nome villa: " + villa.get(0) + " num stanze: " + villa.get(1) + " piscina: " + villa.get(2));
+                        "Nome villa: " + (String)villa.get(0) + " num stanze: " + (Integer)villa.get(1) + " piscina: " + (Integer)villa.get(2));
             }
         }
 
