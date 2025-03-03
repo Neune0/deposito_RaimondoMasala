@@ -29,15 +29,20 @@ class Utente{
 
     @Override
     public boolean equals(Object obj) {
+        
         if(obj==null) return false;
+
+        // obj non è null controllo classe
         if(obj.getClass()!=this.getClass()) return false;
         
+        // obj è di tipo Utente faccio il cast e proseguo con confronto attributi
         Utente u = (Utente) obj;
         return this.nome.equals(u.nome) && this.cognome.equals(u.cognome);
     }
 
     @Override
     public int hashCode() {
+        // usa gli hashcode degli attributi per calcolare l'hashcode dell'oggetto
         return this.nome.hashCode() + this.cognome.hashCode();
     }
 }
