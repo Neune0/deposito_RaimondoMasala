@@ -19,10 +19,11 @@ public class Auto {
 
         System.out.println("Modello: " + auto1.modello);
         System.out.println("Colore: " + auto1.colore);
-        
+
         auto1.accelera(50);
         auto1.frena(20);
     }
+    
 
     // region Methods
     public void accelera(int incremento) {
@@ -39,7 +40,25 @@ public class Auto {
     }
 
     // endregion
-    
 
+}
 
+class Prenotazione{
+    String nomeCliente;
+    int riga;
+    int colonna;
+
+    // costruttore
+    public Prenotazione(String nomeCliente, int riga, int colonna){
+        this.nomeCliente = nomeCliente;
+        this.riga = riga;
+        this.colonna = colonna;
+    }
+
+    public static void main(String[] args) {
+        Prenotazione prenotazione1 = new Prenotazione("Mario Rossi", 5, 10);
+        System.out.println("Prenotazione effettuata da: " + prenotazione1.nomeCliente);
+        System.out.println("Riga: " + prenotazione1.riga);
+        System.out.println("Colonna: " + prenotazione1.colonna);
+    }
 }
