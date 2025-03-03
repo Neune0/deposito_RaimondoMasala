@@ -16,6 +16,10 @@ public class Auto {
 
     public static void main(String[] args) {
         Auto auto1 = new Auto("Fiat 500", "Bianca");
+
+        System.out.println("Modello: " + auto1.modello);
+        System.out.println("Colore: " + auto1.colore);
+        
         auto1.accelera(50);
         auto1.frena(20);
     }
