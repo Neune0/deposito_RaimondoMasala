@@ -4,9 +4,12 @@ public class App {
     public static void main(String[] args) {
         Utente utente = new Utente("Mario", "Rossi");
         Utente utente2 = new Utente("Mario", "Rossi");
+        Utente utente3 = new Utente("Mario", "Bianchi");
         System.out.println(utente);
         System.out.println(utente2);
+        System.out.println(utente3);
         System.out.println("utente è uguale a utente2? "+utente.equals(utente2));
+        System.out.println("utente è uguale a utente3? "+utente.equals(utente3));
         System.out.println("hascode di utente: "+utente.hashCode());
     }
 }
