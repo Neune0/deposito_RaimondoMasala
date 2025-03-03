@@ -6,17 +6,14 @@ public class Partita {
 
     public static void main(String[] args) {
         Partita partita = new Partita();
-        Squadra squadra1 = new Squadra(new ArrayList<Calciatore>());
-        Squadra squadra2 = new Squadra(new ArrayList<Calciatore>());
+        partita.addSquadra(new Squadra(new ArrayList<Calciatore>()));
+        partita.addSquadra(new Squadra(new ArrayList<Calciatore>()));
 
-        for(int i=0;i<12;i++){
-            // chiedi calciatore
-            squadra1.addCalciatore(chiediCalciatore());
-        }
-
-        for(int i=0;i<12;i++){
-            // chiedi calciatore
-            squadra2.addCalciatore(chiediCalciatore());
+        for(Squadra squadra : partita.squadre){
+            for(int i=0;i<12;i++){
+                // chiedi calciatore
+                squadra.addCalciatore(chiediCalciatore());
+            }
         }
 
         partita.printRisultatoPartita();
@@ -39,6 +36,9 @@ public class Partita {
         return new Calciatore(nome, ruolo);
     }
     
+    public void addSquadra(Squadra squadra){
+        squadre.add(squadra);
+    }
 }
 
 class Squadra{
