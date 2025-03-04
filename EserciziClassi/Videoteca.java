@@ -316,3 +316,57 @@ class Film {
         this.titolo = titolo;
     }
 }
+
+// classe inputhelper wrapper di scanner
+class InputHelper{
+    private Scanner myIntScanner = new Scanner(System.in);
+    private Scanner myStringScanner = new Scanner(System.in);
+
+    public int getInt(){
+        return myIntScanner.nextInt();
+    }
+
+    public String getString(){
+        return myStringScanner.nextLine();
+    }
+
+    public void close(){
+        myIntScanner.close();
+        myStringScanner.close();
+    }
+
+}
+
+// classe SelectMenu per la gestion di un menu a selezione di opzione
+class SelectMenu{
+    InputHelper inputHelper = new InputHelper();
+    ArrayList<String> options = new ArrayList<String>();
+    String headerMenu="";
+
+    // il costruttore prende un arraylist di stringhe che sono le opzioni del menu
+    public SelectMenu(String header,ArrayList<String> options){
+        this.options = options;
+        this.headerMenu = header;
+    }
+
+    public void print(){
+        System.out.println(headerMenu);
+        for (int i = 0; i < options.size(); i++) {
+            System.out.println(i + ". " + options.get(i));
+        }
+    }
+    
+    // un metodo per il controllo dell' input
+
+    // il metodo start restituisce un intero che è la scelta dell'utente oppure -1 se la scelta non è valida
+    public int start(){
+        print();
+        int scelta = inputHelper.getInt();
+        if(scelta<0 || scelta>=options.size()){
+            System.out.println("selezione non valida");
+            return -1;
+        }
+        return scelta;
+    }
+
+}
