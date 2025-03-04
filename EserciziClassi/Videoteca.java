@@ -339,9 +339,9 @@ class InputHelper{
 
 // classe SelectMenu per la gestion di un menu a selezione di opzione
 class SelectMenu{
-    InputHelper inputHelper = new InputHelper();
-    ArrayList<String> options = new ArrayList<String>();
-    String headerMenu="";
+    private InputHelper inputHelper = new InputHelper();
+    private ArrayList<String> options = new ArrayList<String>();
+    private String headerMenu="";
 
     // il costruttore prende un arraylist di stringhe che sono le opzioni del menu
     public SelectMenu(String header,ArrayList<String> options){
@@ -370,3 +370,4 @@ class SelectMenu{
     }
 
 }
+
