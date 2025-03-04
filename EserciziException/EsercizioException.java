@@ -6,8 +6,6 @@ public class EsercizioException {
         Scanner scanner;
         final double prezzoPerCioccolatino = 1.00;
 
-        // voglio chiudere tutto questo dentro un do while cosi da creare un loop
-        // che si ripete finche l'utente non inserisce un numero valido
         boolean exit= false;
         do{
             scanner = new Scanner(System.in); // reeset dello scanner perche lo chiudo nel finally
