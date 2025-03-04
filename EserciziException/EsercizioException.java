@@ -3,12 +3,11 @@ import java.util.Scanner;
 public class EsercizioException {
     public static void main(String[] args) {
         // scanner per leggere la stringa di input utente
-        Scanner scanner;
+        Scanner scanner = new Scanner(System.in);
         final double prezzoPerCioccolatino = 1.00;
 
         boolean exit= false;
         do{
-            scanner = new Scanner(System.in); // reeset dello scanner perche lo chiudo nel finally
             try {
                 System.out.print("Inserisci la quantità di cioccolatini: ");
                 String input = scanner.nextLine(); 
@@ -32,9 +31,10 @@ public class EsercizioException {
                 System.out.println("Errore: " + e.getMessage());
             } finally {
                 System.out.println("Ciao");
-                scanner.close();
             }
         }while(!exit);
+
+        scanner.close();
         
     }
     
