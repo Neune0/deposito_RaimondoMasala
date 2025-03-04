@@ -27,11 +27,25 @@ public class Incapsulamento{
         i.setY(40);
         i.stampa(); // metodo non statico, fa riferimento all'oggetto i
         Incapsulamento.metodoStatico();
+        i.metodoEsempio();
 
     }
 
     public static void metodoStatico(){
         System.out.println("metodo statico");
+    }
+
+    public void metodoEsempio(){
+        if(verifica()){
+            System.out.println("ho usato il metodo privato verifica ed x è maggiore di 0");
+        }
+        else{
+            System.out.println("ho usato il metodo privato verifica ed x è minore o uguale a 0");
+        }
+    }
+
+    private boolean verifica(){
+        return getX() > 0;
     }
 
 }
