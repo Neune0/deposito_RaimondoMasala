@@ -6,6 +6,8 @@ public class PrimoEsempioException {
             numeri[10] = 10;
         } catch (ArrayIndexOutOfBoundsException e) {    
             System.out.println("Indice fuori dai limiti");
+        }finally{
+            System.out.println("il try catch è finito");
         }
             
     }
