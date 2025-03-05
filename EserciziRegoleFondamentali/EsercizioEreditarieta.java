@@ -30,7 +30,8 @@ public class EsercizioEreditarieta {
                         switch (sceltaRuolo) {
                             case 1:
                                 // diventa chef problema di downcasting
-                                chefAusiliario = new Chef(utenteAusiliario.getnome(), utenteAusiliario.getEmail(), utenteAusiliario.getSoldi(), utenteAusiliario.getPassword());
+                                chefAusiliario = new Chef(utenteAusiliario.getnome(), utenteAusiliario.getEmail(),
+                                        utenteAusiliario.getSoldi(), utenteAusiliario.getPassword());
                                 chefAusiliario.saluta();
                                 // tolgo utente ausiliario da lista utenti in ristorante
                                 ristorante.removeUtente(utenteAusiliario);
@@ -51,10 +52,12 @@ public class EsercizioEreditarieta {
                                         float costo = stringScanner.nextFloat();
                                         ristorante.piatti.add(new Piatto(nomePiatto, costo));
                                         chefAusiliario.incrementaPiattiCreati();
-                                        if(chefAusiliario.getNumeroPiattiCreati() == 3){
+                                        if (chefAusiliario.getNumeroPiattiCreati() == 3) {
                                             System.out.println("hai creato 3 piatti, sei diventato chef capo");
                                             ristorante.removeUtente(chefAusiliario);
-                                            chefCapoAusiliario = new ChefCapo(chefAusiliario.getnome(), chefAusiliario.getEmail(), chefAusiliario.getSoldi(), chefAusiliario.getPassword());
+                                            chefCapoAusiliario = new ChefCapo(chefAusiliario.getnome(),
+                                                    chefAusiliario.getEmail(), chefAusiliario.getSoldi(),
+                                                    chefAusiliario.getPassword());
                                             ristorante.addUtente(chefCapoAusiliario);
                                             chefCapoAusiliario.saluta();
                                         }
@@ -65,7 +68,8 @@ public class EsercizioEreditarieta {
                                 break;
                             case 2:
                                 // diventa critico
-                                criticoAusiliario = new Critico(utenteAusiliario.getnome(), utenteAusiliario.getEmail(), utenteAusiliario.getSoldi(), utenteAusiliario.getPassword());
+                                criticoAusiliario = new Critico(utenteAusiliario.getnome(), utenteAusiliario.getEmail(),
+                                        utenteAusiliario.getSoldi(), utenteAusiliario.getPassword());
                                 criticoAusiliario.saluta();
                                 // tolgo utente ausiliario da lista utenti in ristorante
                                 ristorante.removeUtente(utenteAusiliario);
@@ -74,27 +78,31 @@ public class EsercizioEreditarieta {
 
                                 // in quanto critico posso fare una valutazione
                                 risposta = "";
-                                do{
-                                    System.out.println("vuoi fare una valutazione? se si scrivi si, altrimenti scrivi basta");
+                                do {
+                                    System.out.println(
+                                            "vuoi fare una valutazione? se si scrivi si, altrimenti scrivi basta");
                                     risposta = stringScanner.nextLine();
-                                    if(!risposta.equals("basta")){
+                                    if (!risposta.equals("basta")) {
                                         ristorante.printPiatti();
                                         System.out.println("inserisci il numero del piatto che vuoi valutare");
                                         int numeroPiatto = intScanner.nextInt();
                                         System.out.println("inserisci il voto");
                                         int voto = intScanner.nextInt();
-                                        ristorante.addValutaione(new Valutazione(voto, ristorante.getPiattoByPos(numeroPiatto)));
+                                        ristorante.addValutaione(
+                                                new Valutazione(voto, ristorante.getPiattoByPos(numeroPiatto)));
                                         criticoAusiliario.incrementaValutazioniFatte();
-                                        if(criticoAusiliario.getNumeroValutazioniFatte() == 3){
+                                        if (criticoAusiliario.getNumeroValutazioniFatte() == 3) {
                                             System.out.println("hai fatto 3 valutazioni, sei diventato critico forte");
                                             ristorante.removeUtente(criticoAusiliario);
-                                            criticoForteAusiliario = new CriticoForte(criticoAusiliario.getnome(), criticoAusiliario.getEmail(), criticoAusiliario.getSoldi(), criticoAusiliario.getPassword());
+                                            criticoForteAusiliario = new CriticoForte(criticoAusiliario.getnome(),
+                                                    criticoAusiliario.getEmail(), criticoAusiliario.getSoldi(),
+                                                    criticoAusiliario.getPassword());
                                             ristorante.addUtente(criticoForteAusiliario);
                                             criticoForteAusiliario.saluta();
                                         }
                                     }
 
-                                }while(!risposta.equals("basta"));
+                                } while (!risposta.equals("basta"));
 
                                 break;
                             case 3:
@@ -109,7 +117,8 @@ public class EsercizioEreditarieta {
                     break;
             }
         } while (scelta != 3);
-
+        stringScanner.close();
+        intScanner.close();
     }
 
     public static int menuIniziale(Scanner intScanner) {
@@ -191,7 +200,7 @@ class Ristorante {
         this.utenti = new ArrayList<Utente>();
     }
 
-    public Piatto getPiattoByPos(int pos){
+    public Piatto getPiattoByPos(int pos) {
         return piatti.get(pos);
     }
 
@@ -211,7 +220,7 @@ class Ristorante {
         for (Utente utente : utenti) {
             if (utente.getEmail().equals(email) && utente.getPassword().equals(password)) {
                 System.out.println("benvenuto " + utente.getnome());
-                utente.setSoldi((float) Math.random() * 50);
+                utente.setSoldi((float) (Math.random() * 50));
                 return utente;
             }
         }
@@ -223,18 +232,18 @@ class Ristorante {
         utenti.remove(utente);
     }
 
-    public void printPiatti(){
+    public void printPiatti() {
         // mi serve un indice cosi lo attacco in ogni piatto
-        for(int i = 0; i < piatti.size(); i++){
+        for (int i = 0; i < piatti.size(); i++) {
             System.out.println(i + ". " + piatti.get(i).getNomePiatto() + " " + piatti.get(i).getCosto());
         }
     }
 
-    public Chef getChef(Chef chef){
-        for(Utente utente : utenti){
-            if(utente instanceof Chef){
+    public Chef getChef(Chef chef) {
+        for (Utente utente : utenti) {
+            if (utente instanceof Chef) {
                 Chef chefAusiliario = (Chef) utente;
-                if(chefAusiliario.equals(chef)){
+                if (chefAusiliario.equals(chef)) {
                     return chefAusiliario;
                 }
             }
@@ -267,7 +276,7 @@ class Valutazione {
     private int voto;
     private Piatto piattoValutato;
 
-    public Valutazione(int voto,Piatto piattoValutato) {
+    public Valutazione(int voto, Piatto piattoValutato) {
         this.voto = voto;
         this.piattoValutato = piattoValutato;
     }
@@ -280,6 +289,7 @@ class Valutazione {
 
 class Chef extends Utente {
     private int numeroPiattiCreati;
+
     public Chef(String nome, String email, float soldi, String password) {
         super(nome, email, soldi, password);
         numeroPiattiCreati = 0;
@@ -292,6 +302,7 @@ class Chef extends Utente {
     public void incrementaPiattiCreati() {
         numeroPiattiCreati++;
     }
+
     public int getNumeroPiattiCreati() {
         return numeroPiattiCreati;
     }
@@ -324,7 +335,7 @@ class Critico extends Utente {
         System.out.println("ciao, sono un critico adesso e mi chiamo: " + getnome());
     }
 
-    public int getNumeroValutazioniFatte(){
+    public int getNumeroValutazioniFatte() {
         return numeroValutaioniFatte;
     }
 
