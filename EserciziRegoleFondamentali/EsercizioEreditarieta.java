@@ -188,6 +188,7 @@ class Ristorante {
         this.nomeRistorante = nomeRistorante;
         this.piatti = new ArrayList<Piatto>();
         this.valutazioni = new ArrayList<Valutazione>();
+        this.utenti = new ArrayList<Utente>();
     }
 
     public Piatto getPiattoByPos(int pos){
