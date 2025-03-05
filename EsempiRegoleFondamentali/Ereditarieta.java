@@ -1,8 +1,11 @@
 public class Ereditarieta{
     public static void main(String[] args) {
+
+        // un buon esempio di comportamenti diversi di java compilazione/ running time
+        // in questo caso il tipo di riferimento è Animale ma l'oggetto è di tipo Mammifero
         Animale animal = new Mammifero("animale","specie");
 
-        animal.saluta(); // usa il saluta di Mammifero
+        animal.saluta(); // usa il saluta di Mammifero perche il tipo di riferimento è Animale ma l'oggetto è di tipo Mammifero
         // animal.saluta("ciao"); // non posso chiamare il metodo saluta con un parametro in quanto il tipo di riferimento è Animale
     }
 }
@@ -21,6 +24,7 @@ class Animale{
     public String getNome() {
         return nome;
     }
+    
 }
 
 class Mammifero extends Animale{
