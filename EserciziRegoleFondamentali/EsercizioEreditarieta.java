@@ -29,8 +29,8 @@ public class EsercizioEreditarieta {
                         int sceltaRuolo = intScanner.nextInt();
                         switch (sceltaRuolo) {
                             case 1:
-                                // diventa chef
-                                chefAusiliario = (Chef) utenteAusiliario;
+                                // diventa chef problema di downcasting
+                                chefAusiliario = new Chef(utenteAusiliario.getnome(), utenteAusiliario.getEmail(), utenteAusiliario.getSoldi(), utenteAusiliario.getPassword());
                                 chefAusiliario.saluta();
                                 // tolgo utente ausiliario da lista utenti in ristorante
                                 ristorante.removeUtente(utenteAusiliario);
@@ -65,7 +65,7 @@ public class EsercizioEreditarieta {
                                 break;
                             case 2:
                                 // diventa critico
-                                criticoAusiliario = (Critico) utenteAusiliario;
+                                criticoAusiliario = new Critico(utenteAusiliario.getnome(), utenteAusiliario.getEmail(), utenteAusiliario.getSoldi(), utenteAusiliario.getPassword());
                                 criticoAusiliario.saluta();
                                 // tolgo utente ausiliario da lista utenti in ristorante
                                 ristorante.removeUtente(utenteAusiliario);
