@@ -8,6 +8,14 @@ public class Familia {
     }
 }
 
+class AltraClasse{
+    Adulto adulto = new Adulto("gianpippo");
+
+
+    Adulto.Figlio figlio = adulto.new Figlio("lkasdhf");
+
+}
+
 
 class Adulto{
 
