@@ -22,6 +22,7 @@ public class EsercizioEreditarieta {
                     utenteAusiliario = ristorante.login(stringScanner);
                     // qui mettere menu per diventare chef o critico
                     if (utenteAusiliario != null) {
+                        //PROBLEM  qui controllare con instance of e saltare scelta di diventare chef o critico
                         System.out.println("vuoi diventare chef o critico?");
                         System.out.println("1. chef");
                         System.out.println("2. critico");
