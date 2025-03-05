@@ -1,6 +1,9 @@
 public class Ereditarieta{
     public static void main(String[] args) {
-        
+        Animale animal = new Mammifero("animale","specie");
+
+        animal.saluta(); // usa il saluta di Mammifero
+        // animal.saluta("ciao"); // non posso chiamare il metodo saluta con un parametro in quanto il tipo di riferimento è Animale
     }
 }
 
