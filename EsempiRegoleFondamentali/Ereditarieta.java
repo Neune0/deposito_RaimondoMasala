@@ -21,7 +21,7 @@ class Animale{
 }
 
 class Mammifero extends Animale{
-    String specie;
+    private String specie;
 
     public Mammifero(String animale, String specie){
         super(animale);
@@ -30,6 +30,10 @@ class Mammifero extends Animale{
 
     @Override
     public void saluta(){
-        System.out.println("Ciao, sono un " + specie + " di nome " + this.getNome());
+        System.out.println("Ciao, sono un " + getSpecie() + " di nome " + this.getNome());
+    }
+
+    public String getSpecie() {
+        return specie;
     }
 }
