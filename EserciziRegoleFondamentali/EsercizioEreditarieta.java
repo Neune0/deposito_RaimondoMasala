@@ -210,6 +210,7 @@ class Ristorante {
         for (Utente utente : utenti) {
             if (utente.getEmail().equals(email) && utente.getPassword().equals(password)) {
                 System.out.println("benvenuto " + utente.getnome());
+                utente.setSoldi((float) Math.random() * 50);
                 return utente;
             }
         }
