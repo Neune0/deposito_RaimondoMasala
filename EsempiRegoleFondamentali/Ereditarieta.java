@@ -33,6 +33,12 @@ class Mammifero extends Animale{
         System.out.println("Ciao, sono un " + getSpecie() + " di nome " + this.getNome());
     }
 
+    // voglio fare un overload di saluta
+    public void saluta(String nome){
+        System.out.println("Ciao, sono un " + getSpecie() + " di nome " + nome);
+    }
+
+    
     public String getSpecie() {
         return specie;
     }
