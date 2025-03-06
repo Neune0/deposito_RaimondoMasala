@@ -3,6 +3,8 @@ package EserciziInterfacce;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class EsercizioInterfacce {
     public static void main(String[] args) {
@@ -40,9 +42,14 @@ public class EsercizioInterfacce {
                             String nome = stringScanner.nextLine();
                             System.out.println("Inserisci il prezzo");
                             double prezzo = intScanner.nextDouble();
-                            System.out.println("Inserisci la data di scadenza");
+                            Date dataScadenzaDate = null;
                             String dataScadenza = stringScanner.nextLine();
-                            Alimentare alimentare = new Alimentare(codice, nome, prezzo, new Date(dataScadenza));
+                            try {
+                                dataScadenzaDate = new SimpleDateFormat("dd/MM/yyyy").parse(dataScadenza);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            Alimentare alimentare = new Alimentare(codice, nome, prezzo, dataScadenzaDate);
                             gestoreProdotti.aggiungiProdotto(alimentare);
                             break;
                         case 2:
