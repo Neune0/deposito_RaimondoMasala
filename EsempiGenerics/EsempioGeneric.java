@@ -59,7 +59,11 @@ class PrinterNumber<T extends Number>{
     T t;
 
     public PrinterNumber(T t) {
-        this.t = t;
+        try{
+            this.t = t;
+        }catch(Exception e){
+            System.out.println("Tipo non valido");
+        }
     }
 
     public void print() {
