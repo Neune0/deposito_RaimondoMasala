@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class EsempioGeneric {
     public static void main(String[] args) {
@@ -19,6 +21,21 @@ public class EsempioGeneric {
 
         PrinterNumber<Integer> intPrinterNumber = new PrinterNumber<>(5);
         intPrinterNumber.print();
+
+        // test classe lowerboundExemple
+        List<Number> list = new ArrayList<>();
+        LowerBoundExemple.addIntegers(list);
+        System.out.println(list);
+
+        // lista di object
+        List<Object> listObject = new ArrayList<>();
+        LowerBoundExemple.addIntegers(listObject);
+        System.out.println(listObject);
+
+        // lista di integer
+        List<Integer> listInteger = new ArrayList<>();
+        LowerBoundExemple.addIntegers(listInteger);
+        System.out.println(listInteger);
     }
 }
 
@@ -70,3 +87,12 @@ class PrinterNumber<T extends Number>{
         System.out.println(t);
     }
 }
+
+class LowerBoundExemple{
+    public static void addIntegers(List<? super Integer> list){
+        list.add(50);
+    }
+
+
+}
+
