@@ -10,6 +10,7 @@ public class EsempioInterfaccia {
 }
 
 interface Animable{
+    public static final int a = 5;
     public void animalSound();
     public void sleep();
 }
