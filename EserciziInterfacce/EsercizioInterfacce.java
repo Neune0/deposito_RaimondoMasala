@@ -1,4 +1,4 @@
-package EserciziInterfacce;
+
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,6 +42,7 @@ public class EsercizioInterfacce {
                             String nome = stringScanner.nextLine();
                             System.out.println("Inserisci il prezzo");
                             double prezzo = intScanner.nextDouble();
+                            System.out.println("Inserisci la data di scadenza (dd/MM/yyyy)");
                             Date dataScadenzaDate = null;
                             String dataScadenza = stringScanner.nextLine();
                             try {
