@@ -1,4 +1,3 @@
-package EsempiWrapper;
 
 public class EsempioWrapper {
     public static void main(String[] args) {
