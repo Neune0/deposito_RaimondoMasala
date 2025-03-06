@@ -16,6 +16,9 @@ public class EsempioGeneric {
         // creo un oggetto di tipo printer che stampa un oggetto di tipo persona
         Printer<Persona> personaPrinter = new Printer<>(new Persona("Mario", 20));
         personaPrinter.print();
+
+        PrinterNumber<Integer> intPrinterNumber = new PrinterNumber<>(5);
+        intPrinterNumber.print();
     }
 }
 
@@ -44,6 +47,18 @@ class Printer<T> {
     T t;
 
     public Printer(T t) {
+        this.t = t;
+    }
+
+    public void print() {
+        System.out.println(t);
+    }
+}
+
+class PrinterNumber<T extends Number>{
+    T t;
+
+    public PrinterNumber(T t) {
         this.t = t;
     }
 
