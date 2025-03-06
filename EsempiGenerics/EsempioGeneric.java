@@ -36,6 +36,20 @@ public class EsempioGeneric {
         List<Integer> listInteger = new ArrayList<>();
         LowerBoundExemple.addIntegers(listInteger);
         System.out.println(listInteger);
+
+        // test di upperboundexemple
+        List<Integer> listInteger2 = new ArrayList<>();
+        listInteger2.add(10);
+        listInteger2.add(20);
+        listInteger2.add(30);
+        UpperBoundExemple.printIntegers(listInteger2);
+
+        // test con double
+        List<Double> listDouble = new ArrayList<>();
+        listDouble.add(10.5);
+        listDouble.add(20.5);
+        listDouble.add(30.5);
+        UpperBoundExemple.printIntegers(listDouble);
     }
 }
 
@@ -96,3 +110,15 @@ class LowerBoundExemple{
 
 }
 
+
+class UpperBoundExemple{
+    public static void addIntegers(List<? extends Number> list){
+        // list.add(50); // non posso aggiungere elementi
+    }
+    public static void printIntegers(List<? extends Number> list){
+        for(Number n : list){
+            System.out.println(n);
+        }
+    }
+
+}
