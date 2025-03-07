@@ -296,6 +296,7 @@ class Paziente extends Persona {
 class InputHelper {
     Scanner intScanner = null;
     Scanner stringScanner = null;
+    // vanno messi dei controlli sull'input utente per gestire le eccezzioni
 
     public InputHelper() {
         this.intScanner = new Scanner(System.in);
