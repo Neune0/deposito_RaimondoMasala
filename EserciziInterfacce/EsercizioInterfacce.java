@@ -1,10 +1,57 @@
-
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+enum MenuIniziale{
+    AGGIUNGIPRODOTTO, 
+    RIMUOVIPRODOTTO, 
+    STAMPARESOCONTO, 
+    APPLICASCONTI, 
+    ACQUISTAPRODOTTO, 
+    VISUALIZZAPUNTIFEDALTA, 
+    ESCI;
+
+    public static MenuIniziale fromIntToMenuIniziale(int i){
+        switch(i){
+            case 1:
+                return AGGIUNGIPRODOTTO;
+            case 2:
+                return RIMUOVIPRODOTTO;
+            case 3:
+                return STAMPARESOCONTO;
+            case 4:
+                return APPLICASCONTI;
+            case 5:
+                return ACQUISTAPRODOTTO;
+            case 6:
+                return VISUALIZZAPUNTIFEDALTA;
+            case 7:
+                return ESCI;
+            default:
+                return null;
+        }
+    }
+};
+
+enum TipoProdotto{
+    ALIMENTARE, 
+    ELETTRONICO, 
+    ABBIGLIAMENTO;
+
+    public static TipoProdotto fromIntToTipoProdotto(int i){
+        switch(i){
+            case 1:
+                return ALIMENTARE;
+            case 2:
+                return ELETTRONICO;
+            case 3:
+                return ABBIGLIAMENTO;
+            default:
+                return null;
+        }
+    }
+};
 
 public class EsercizioInterfacce {
     public static void main(String[] args) {
@@ -15,6 +62,7 @@ public class EsercizioInterfacce {
         int puntiFedelta = 0;
         Scanner intScanner = new Scanner(System.in);
         Scanner stringScanner = new Scanner(System.in);
+        
         GestoreProdotti gestoreProdotti = new GestoreProdotti();
         do {
             System.out.println("1. Aggiungi prodotto");
@@ -25,16 +73,17 @@ public class EsercizioInterfacce {
             System.out.println("6. Visualizza i miei punti fedelta");
             System.out.println("7. Esci");
             scelta = intScanner.nextInt();
+            MenuIniziale sceltaMenuIniziale = MenuIniziale.fromIntToMenuIniziale(scelta);
 
-            switch (scelta) {
-                case 1:
-                    // aggiungere prodotto
+            switch (sceltaMenuIniziale) {
+                case AGGIUNGIPRODOTTO: // aggiungere prodotto
                     System.out.println("1. Prodotto alimentare");
                     System.out.println("2. Prodotto elettronico");
                     System.out.println("3. Prodotto abbigliamento");
                     sceltaTipoProdotto = intScanner.nextInt();
-                    switch (sceltaTipoProdotto) {
-                        case 1:
+                    TipoProdotto tipoProdotto = TipoProdotto.fromIntToTipoProdotto(sceltaTipoProdotto);
+                    switch (tipoProdotto) {
+                        case ALIMENTARE:
                             // prodotto alimentare
                             System.out.println("Inserisci il codice");
                             int codice = intScanner.nextInt();
@@ -53,7 +102,7 @@ public class EsercizioInterfacce {
                             Alimentare alimentare = new Alimentare(codice, nome, prezzo, dataScadenzaDate);
                             gestoreProdotti.aggiungiProdotto(alimentare);
                             break;
-                        case 2:
+                        case ELETTRONICO:
                             // prodotto elettronico
                             System.out.println("Inserisci il codice");
                             codice = intScanner.nextInt();
@@ -66,7 +115,7 @@ public class EsercizioInterfacce {
                             Elettronico elettronico = new Elettronico(codice, nome, prezzo, garanzia);
                             gestoreProdotti.aggiungiProdotto(elettronico);
                             break;
-                        case 3:
+                        case ABBIGLIAMENTO:
                             // prodotto abbigliamento
                             System.out.println("Inserisci il codice");
                             codice = intScanner.nextInt();
@@ -86,7 +135,7 @@ public class EsercizioInterfacce {
                     }
 
                     break;
-                case 2:
+                case RIMUOVIPRODOTTO:
                     // rimuovere prodotto
                     // chiedo solamente il codice del prodotto scorro arraylist in gestore prodotti
                     // e lo elimino
@@ -104,18 +153,22 @@ public class EsercizioInterfacce {
                         gestoreProdotti.rimuoviProdotto(prodottoDaRimuovere);
                     }
                     break;
-                case 3:
+                case STAMPARESOCONTO:
                     // stampa la lista dei prodotti, uso dettagli per stampare i dettagli di ogni
                     // prodotto
                     gestoreProdotti.stampaResoconto();
                     break;
-                case 4:
+                case APPLICASCONTI:
                     // applica gli sconti, scorro la lista dei prodotti e applico gli sconti
                     gestoreProdotti.applicaSconti();
                     break;
-                case 5:
+                case ACQUISTAPRODOTTO:
                 // acquista un prodotto
                 // stampo la lista dei prodotti con a fianco prima l'indice e faccio scegliare con l'indice
+                if(gestoreProdotti.prodotti.size() == 0){
+                    System.out.println("Non ci sono prodotti disponibili");
+                    break;
+                }
                 for(int i= 0; i<gestoreProdotti.prodotti.size(); i++){
                     System.out.println(i + ". " + gestoreProdotti.prodotti.get(i).getDettagli());
                 }
@@ -129,9 +182,13 @@ public class EsercizioInterfacce {
                 // rimuovo il prodotto dalla lista
                 gestoreProdotti.rimuoviProdotto(prodottoDaAcquistare);
                 break;
-                case 6:
+                case VISUALIZZAPUNTIFEDALTA:
                 // visualizzo i punti fedelta guadagnati
                 System.out.println("Hai guadagnato " + puntiFedelta + " punti fedelta");
+                break;
+                case ESCI:
+                break;
+                default:
                 break;
                 
             }
@@ -326,3 +383,4 @@ interface IRestituibile {
 interface IFidelizzabile {
     public int calcolaPuntiFedelta();
 }
+
