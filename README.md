@@ -1,2 +1,2 @@
 # deposito_RaimondoMasala
-questa è la descrizione
+collezzione di esercizi ed esempi dal corso java backend
